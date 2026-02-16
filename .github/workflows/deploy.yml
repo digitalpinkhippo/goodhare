@@ -1,0 +1,34 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Create virtual environment if it doesn't exist
+        run: |
+          if [ ! -d "${{ github.workspace }}/venv" ]; then
+            echo "Creating virtual environment..."
+            python3 -m venv "${{ github.workspace }}/venv"
+          else
+            echo "Virtual environment already exists"
+          fi
+      
+      - name: Install Python requirements
+        run: |
+          source "${{ github.workspace }}/venv/bin/activate"
+          pip install --upgrade pip
+          cd "${{ github.workspace }}"
+          pip install -r requirements.txt
+          pip install gunicorn
+      

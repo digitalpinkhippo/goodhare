@@ -1,0 +1,26 @@
+[Unit]
+Description=Gunicorn instance to serve goodhare Flask application
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/goodhare
+Environment="PATH=/home/goodhare/venv/bin"
+ExecStart=/home/goodhare/venv/bin/gunicorn --config /home/goodhare/gunicorn.conf.py app:app
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+RestartSec=3
+
+# Security settings
+PrivateTmp=true
+NoNewPrivileges=true
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=goodhare
+
+[Install]
+WantedBy=multi-user.target
+
