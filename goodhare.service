@@ -5,9 +5,9 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/goodhare
-Environment="PATH=/home/goodhare/venv/bin"
-ExecStart=/home/goodhare/venv/bin/gunicorn --config /home/goodhare/gunicorn.conf.py app:app
+WorkingDirectory=/home/ubuntu/goodhare/_work/goodhare/goodhare
+Environment="PATH=/home/ubuntu/goodhare/_work/goodhare/goodhare/venv/bin"
+ExecStart=/home/ubuntu/goodhare/_work/goodhare/goodhare/venv/bin/gunicorn --config /home/ubuntu/goodhare/_work/goodhare/goodhare/gunicorn.conf.py app:app
 ExecReload=/bin/kill -s HUP $MAINPID
 Restart=always
 RestartSec=3

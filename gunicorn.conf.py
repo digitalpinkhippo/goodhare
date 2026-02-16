@@ -16,8 +16,8 @@ timeout = 30
 keepalive = 2
 
 # Logging
-accesslog = "/home/goodhare/logs/gunicorn_access.log"
-errorlog = "/home/goodhare/logs/gunicorn_error.log"
+accesslog = "/home/ubuntu/goodhare/_work/goodhare/goodhare/logs/gunicorn_access.log"
+errorlog = "/home/ubuntu/goodhare/_work/goodhare/goodhare/logs/gunicorn_error.log"
 loglevel = "info"
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" %(D)s'
 
@@ -26,7 +26,7 @@ proc_name = "goodhare"
 
 # Server mechanics
 daemon = False
-pidfile = "/home/goodhare/gunicorn.pid"
+pidfile = "/home/ubuntu/goodhare/_work/goodhare/goodhare/gunicorn.pid"
 umask = 0
 user = None
 group = None
