@@ -31,8 +31,3 @@ umask = 0
 user = None
 group = None
 tmp_upload_dir = None
-
-# SSL (if needed in future)
-# keyfile = None
-# certfile = None
-
